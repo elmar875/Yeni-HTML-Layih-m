@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>input.type.file.show.img.html</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+
+<meta charset="utf-8">
+
+<style>
+
+body {
+margin: 0px; 
+padding: 0px; 
+}
+
+#container {
+text-align: center; 
+}
+
+#button {
+font-family: "Times New Roman"; 
+background-color: #ffffff; 
+color: #000000; 
+border: 2px solid #000000; 
+outline: none; 
+margin-top: 70px; 
+padding: 10px 20px; 
+font-size: 16px; 
+border-radius: 50px; 
+font-weight: bold; 
+text-shadow: 0px 0px 2px; 
+box-shadow: 0px 0px 5px 2px #000000; 
+display: inline-block; 
+}
+
+#giris {
+display: none; 
+}
+
+#sekil {
+width: 50%; 
+border: 2px solid #000000; 
+box-shadow: 0px 0px 5px 2px #000000; 
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="container">
+
+<label for="giris" id="button">Choose File</label>
+
+<input type="file" id="giris" onchange="readFile();" accept="image">
+
+<br /><br />
+
+<img src="" id="sekil">
+
+</div>
+
+<br />
+
+<script type="text/javascript">
+      function readFile() {
+         var reader = new FileReader();
+         var file = document.getElementById('giris').files[0];
+   
+         reader.onload = function(e) {
+            document.getElementById('sekil').src = e.target.result;
+         }
+   
+         reader.readAsDataURL(file);
+      }
+   </script>
+
+</body>
+
+</html>
